@@ -1,6 +1,6 @@
 (* LES SEULES COMMANDES AUTORISÃ‰ES SONT CELLES DÃ‰CRITES DANS CE FICHIER. *)
 
-(* Les indications entre " ne sont pas Ã  recopier, elles indiquent
+(* Les indications entre  ne sont pas Ã  recopier, elles indiquent
    juste que vous avez Ã  mettre un nom Ã  cet endroit. *)
 
 
@@ -10,21 +10,34 @@ Context (P Q R A Z J F M S T: Prop).
 
 (**********************************************************************)
 (* Exercice 1 LA FLÃˆCHE  ***********************)
+
 (* - axiome : assumption
-   - introduction de la flÃ¨che : intro "nom qu'on donne Ã  l'hypothÃ¨se" 
-   - Ã©limination de la flÃ¨che : apply "nom de l'hypothÃ¨se utilisÃ©e" *)
+   - introduction de la flÃ¨che : intro nom qu'on donne Ã  l'hypothÃ¨se 
+   - Ã©limination de la flÃ¨che : apply nom de l'hypothÃ¨se utilisÃ©e *)
+   
 Theorem exercice_1a: P -> (P -> Q) -> Q.
+intro.
+intro.
+apply.
+assumption.
+assumption.
 Proof.
 Qed.
 
 
 Theorem exercice_1b: (P -> Q) -> (Q -> R) -> (P -> R).
+intro.
+intro.
+intro.
+apply.
+apply.
+assumption.
 Proof.
 Qed.
 
 (* Exercice 2 LE ET  ***********************)
 (* Une variante de la question prÃ©cÃ©dente avec /\ *)
-(* - dÃ©composition du /\ en hypothÃ¨se : destruct "nom de l'hypothÃ¨se avec /\" as [ "nom gauche" "nom droite" ]
+(* - dÃ©composition du /\ en hypothÃ¨se : destruct nom de l'hypothÃ¨se avec /\ as [ nom gauche nom droite ]
 *)
 Theorem exercice_2a: (P -> Q) /\ (Q -> R) -> (P -> R).
 Proof.
@@ -41,7 +54,7 @@ Qed.
    - depuis la droite : right
    - depuis la gauche : left
 
-   decomposition du \/ en hypothÃ¨se : destruct "nom de l'hypothÃ¨se avec \/" as [ "nom gauche" | "nom droite" ]
+   decomposition du \/ en hypothÃ¨se : destruct nom de l'hypothÃ¨se avec \/ as [ nom gauche | nom droite ]
    notez le | qui sÃ©pare les sous-buts. *)
 
 Theorem exercice_3a: (P \/ Q) -> (Q \/ P).
