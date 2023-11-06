@@ -16,21 +16,20 @@ Context (P Q R A Z J F M S T: Prop).
    - Ã©limination de la flÃ¨che : apply nom de l'hypothÃ¨se utilisÃ©e *)
    
 Theorem exercice_1a: P -> (P -> Q) -> Q.
-intro.
-intro.
-apply.
-assumption.
+intro H1.
+intro H2.
+apply H2. 
 assumption.
 Proof.
 Qed.
 
 
 Theorem exercice_1b: (P -> Q) -> (Q -> R) -> (P -> R).
-intro.
-intro.
-intro.
-apply.
-apply.
+intro H1.
+intro H2.
+intro H3.
+apply H2.
+apply H1.
 assumption.
 Proof.
 Qed.
@@ -40,12 +39,23 @@ Qed.
 (* - dÃ©composition du /\ en hypothÃ¨se : destruct nom de l'hypothÃ¨se avec /\ as [ nom gauche nom droite ]
 *)
 Theorem exercice_2a: (P -> Q) /\ (Q -> R) -> (P -> R).
+intro H.
+intro H0.
+apply H.
+destruct H.
+apply H.
+assumption.
 Proof.
 Qed.
 
 (* - introduction du /\ : split *)
 (* On obtient bien deux sous-buts *)
-Theorem exercice_2b : P -> Q -> P /\ Q.
+Theorem exercice_2b : P -> (Q -> P /\ Q).
+intro H.
+intro H2.
+split.
+assumption.
+assumption.
 Proof.
 Qed.
   
@@ -58,6 +68,10 @@ Qed.
    notez le | qui sÃ©pare les sous-buts. *)
 
 Theorem exercice_3a: (P \/ Q) -> (Q \/ P).
+intro H1.
+left.
+destruct H1 as [ H2 | H3 ].
+destruc
 Proof.
 Qed.
 
